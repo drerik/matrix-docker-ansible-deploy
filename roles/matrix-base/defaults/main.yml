@@ -208,6 +208,9 @@ matrix_well_known_matrix_server_configuration: "{{ matrix_well_known_matrix_serv
 # The Docker network that all services would be put into
 matrix_docker_network: "matrix"
 
+# Optional docker network options
+matrix_docker_network_driver_options: {}
+
 # Controls whether we'll preserve the vars.yml file on the Matrix server.
 # If you have a differently organized inventory, you may wish to disable this feature,
 # or to repoint `matrix_vars_yml_snapshotting_src` to the file you'd like to preserve.

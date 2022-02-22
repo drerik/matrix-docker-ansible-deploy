@@ -23,6 +23,7 @@
   docker_network:
     name: "{{ matrix_docker_network }}"
     driver: bridge
+    driver_options: "{{ matrix_docker_network_driver_options }}"
 
 - name: Ensure matrix-remove-all script created
   template:
