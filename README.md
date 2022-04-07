@@ -31,7 +31,7 @@ Using this playbook, you can get the following services configured on your serve
 
 - (optional, default) an [Element](https://app.element.io/) ([formerly Riot](https://element.io/previously-riot)) web UI, which is configured to connect to your own Synapse server by default
 
-- (optional, default) a [ma1sd](https://github.com/ma1uta/ma1sd) Matrix Identity server
+- (optional) a [ma1sd](https://github.com/ma1uta/ma1sd) Matrix Identity server
 
 - (optional, default) an [Exim](https://www.exim.org/) mail server, through which all Matrix services send outgoing email (can be configured to relay through another SMTP server)
 
@@ -120,6 +120,8 @@ Using this playbook, you can get the following services configured on your serve
 - (optional) the [Hydrogen](https://github.com/vector-im/hydrogen-web) web client - see [docs/configuring-playbook-client-hydrogen.md](docs/configuring-playbook-client-hydrogen.md) for setup documentation
 
 - (optional) the [Cinny](https://github.com/ajbura/cinny) web client - see [docs/configuring-playbook-client-cinny.md](docs/configuring-playbook-client-cinny.md) for setup documentation
+
+- (optional) the [Borg](https://borgbackup.org) backup - see [docs/configuring-playbook-backup-borg.md](docs/configuring-playbook-backup-borg.md) for setup documentation
 
 Basically, this playbook aims to get you up-and-running with all the necessities around Matrix, without you having to do anything else.
 

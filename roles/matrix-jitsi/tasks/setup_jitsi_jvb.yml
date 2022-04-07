@@ -23,11 +23,17 @@
     force_source: "{{ matrix_jitsi_jvb_docker_image_force_pull if ansible_version.major > 2 or ansible_version.minor >= 8 else omit }}"
     force: "{{ omit if ansible_version.major > 2 or ansible_version.minor >= 8 else matrix_jitsi_jvb_docker_image_force_pull }}"
   when: matrix_jitsi_enabled|bool
+  register: result
+  retries: "{{ matrix_container_retries_count }}"
+  delay: "{{ matrix_container_retries_delay }}"
+  until: result is not failed
 
 - name: Ensure jitsi-jvb configuration files created
   template:
     src: "{{ role_path }}/templates/jvb/{{ item }}.j2"
     dest: "{{ matrix_jitsi_jvb_config_path }}/{{ item }}"
+    owner: "{{ matrix_user_username }}"
+    group: "{{ matrix_user_groupname }}"
     mode: 0644
   with_items:
     - custom-sip-communicator.properties
@@ -38,6 +44,8 @@
   template:
     src: "{{ role_path }}/templates/jvb/env.j2"
     dest: "{{ matrix_jitsi_jvb_base_path }}/env"
+    owner: "{{ matrix_user_username }}"
+    group: "{{ matrix_user_groupname }}"
     mode: 0640
   when: matrix_jitsi_enabled|bool
 

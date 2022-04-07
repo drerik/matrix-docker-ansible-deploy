@@ -52,6 +52,10 @@
     force_source: "{{ matrix_registration_docker_image_force_pull if ansible_version.major > 2 or ansible_version.minor >= 8 else omit }}"
     force: "{{ omit if ansible_version.major > 2 or ansible_version.minor >= 8 else matrix_registration_docker_image_force_pull }}"
   when: "not matrix_registration_container_image_self_build|bool"
+  register: result
+  retries: "{{ matrix_container_retries_count }}"
+  delay: "{{ matrix_container_retries_delay }}"
+  until: result is not failed
 
 - name: Ensure matrix-registration repository is present when self-building
   git:
@@ -76,7 +80,7 @@
 
 - name: Ensure matrix-registration config installed
   copy:
-    content: "{{ matrix_registration_configuration|to_nice_yaml }}"
+    content: "{{ matrix_registration_configuration|to_nice_yaml(indent=2, width=999999) }}"
     dest: "{{ matrix_registration_config_path }}/config.yaml"
     mode: 0644
     owner: "{{ matrix_user_username }}"

@@ -78,7 +78,7 @@
 
 - name: Ensure Dimension config installed
   copy:
-    content: "{{ matrix_dimension_configuration|to_nice_yaml }}"
+    content: "{{ matrix_dimension_configuration|to_nice_yaml(indent=2, width=999999) }}"
     dest: "{{ matrix_dimension_base_path }}/config.yaml"
     mode: 0640
     owner: "{{ matrix_user_username }}"
@@ -92,6 +92,9 @@
     force: "{{ omit if ansible_version.major > 2 or ansible_version.minor >= 8 else matrix_dimension_docker_image_force_pull }}"
   when: "not matrix_dimension_container_image_self_build|bool"
   register: matrix_dimension_pull_results
+  retries: "{{ matrix_container_retries_count }}"
+  delay: "{{ matrix_container_retries_delay }}"
+  until: matrix_dimension_pull_results is not failed
 
 - name: Ensure dimension repository is present on self-build
   git:

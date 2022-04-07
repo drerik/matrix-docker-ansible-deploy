@@ -32,6 +32,10 @@
     source: "{{ 'pull' if ansible_version.major > 2 or ansible_version.minor > 7 else omit }}"
     force_source: "{{ matrix_appservice_discord_docker_image_force_pull if ansible_version.major > 2 or ansible_version.minor >= 8 else omit }}"
     force: "{{ omit if ansible_version.major > 2 or ansible_version.minor >= 8 else matrix_appservice_discord_docker_image_force_pull }}"
+  register: result
+  retries: "{{ matrix_container_retries_count }}"
+  delay: "{{ matrix_container_retries_delay }}"
+  until: result is not failed
 
 - name: Ensure AppService Discord paths exist
   file:
@@ -69,7 +73,7 @@
 
 - name: Ensure AppService Discord config.yaml installed
   copy:
-    content: "{{ matrix_appservice_discord_configuration|to_nice_yaml }}"
+    content: "{{ matrix_appservice_discord_configuration|to_nice_yaml(indent=2, width=999999) }}"
     dest: "{{ matrix_appservice_discord_config_path }}/config.yaml"
     mode: 0644
     owner: "{{ matrix_user_username }}"
@@ -77,7 +81,7 @@
 
 - name: Ensure AppService Discord registration.yaml installed
   copy:
-    content: "{{ matrix_appservice_discord_registration|to_nice_yaml }}"
+    content: "{{ matrix_appservice_discord_registration|to_nice_yaml(indent=2, width=999999) }}"
     dest: "{{ matrix_appservice_discord_config_path }}/registration.yaml"
     mode: 0644
     owner: "{{ matrix_user_username }}"
