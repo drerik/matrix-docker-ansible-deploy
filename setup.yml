@@ -7,19 +7,18 @@
     - roles/matrix-synapse/vars/workers.yml
 
   roles:
-    - matrix-awx
     - matrix-base
     - matrix-dynamic-dns
     - matrix-mailer
     - matrix-postgres
     - matrix-redis
     - matrix-corporal
-    - matrix-backup-borg
     - matrix-bridge-appservice-discord
     - matrix-bridge-appservice-slack
     - matrix-bridge-appservice-webhooks
     - matrix-bridge-appservice-irc
     - matrix-bridge-beeper-linkedin
+    - matrix-bridge-go-skype-bridge
     - matrix-bridge-mautrix-facebook
     - matrix-bridge-mautrix-twitter
     - matrix-bridge-mautrix-hangouts
@@ -31,7 +30,6 @@
     - matrix-bridge-mx-puppet-discord
     - matrix-bridge-mx-puppet-groupme
     - matrix-bridge-mx-puppet-steam
-    - matrix-bridge-mx-puppet-skype
     - matrix-bridge-mx-puppet-slack
     - matrix-bridge-mx-puppet-twitter
     - matrix-bridge-mx-puppet-instagram
@@ -39,6 +37,9 @@
     - matrix-bridge-heisenbridge
     - matrix-bridge-hookshot
     - matrix-bot-matrix-reminder-bot
+    - matrix-bot-matrix-registration-bot
+    - matrix-bot-maubot
+    - matrix-bot-buscarron
     - matrix-bot-honoroit
     - matrix-bot-go-neb
     - matrix-bot-mjolnir
@@ -46,6 +47,7 @@
     - matrix-dendrite
     - matrix-synapse-admin
     - matrix-prometheus-node-exporter
+    - matrix-prometheus-postgres-exporter
     - matrix-prometheus
     - matrix-grafana
     - matrix-registration
@@ -58,9 +60,10 @@
     - matrix-etherpad
     - matrix-email2matrix
     - matrix-sygnal
+    - matrix-ntfy
     - matrix-nginx-proxy
     - matrix-coturn
     - matrix-aux
     - matrix-postgres-backup
-    - matrix-prometheus-postgres-exporter
+    - matrix-backup-borg
     - matrix-common-after
