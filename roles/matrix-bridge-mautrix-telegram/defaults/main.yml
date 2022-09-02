@@ -16,7 +16,7 @@ matrix_mautrix_telegram_docker_repo: "https://mau.dev/mautrix/telegram.git"
 matrix_mautrix_telegram_docker_repo_version: "{{ 'master' if matrix_mautrix_telegram_version == 'latest' else matrix_mautrix_telegram_version }}"
 matrix_mautrix_telegram_docker_src_files_path: "{{ matrix_base_data_path }}/mautrix-telegram/docker-src"
 
-matrix_mautrix_telegram_version: v0.11.3
+matrix_mautrix_telegram_version: v0.12.0
 # See: https://mau.dev/mautrix/telegram/container_registry
 matrix_mautrix_telegram_docker_image: "dock.mau.dev/mautrix/telegram:{{ matrix_mautrix_telegram_version }}"
 matrix_mautrix_telegram_docker_image_force_pull: "{{ matrix_mautrix_telegram_docker_image.endswith(':latest') }}"
@@ -29,7 +29,7 @@ matrix_mautrix_telegram_command_prefix: "!tg"
 
 matrix_mautrix_telegram_bridge_permissions: |
   {{
-    {matrix_mautrix_telegram_homeserver_domain: 'user'}
+    {matrix_mautrix_telegram_homeserver_domain: 'full'}
     | combine({matrix_admin: 'admin'} if matrix_admin else {})
   }}
 
@@ -156,3 +156,8 @@ matrix_mautrix_telegram_registration: "{{ matrix_mautrix_telegram_registration_y
 matrix_mautrix_telegram_username_template: 'telegram_{userid}'
 matrix_mautrix_telegram_alias_template: 'telegram_{groupname}'
 matrix_mautrix_telegram_displayname_template: '{displayname} (Telegram)'
+
+# Enable End-to-bridge encryption
+matrix_mautrix_telegram_bridge_encryption_allow: false
+matrix_mautrix_telegram_bridge_encryption_default: "{{ matrix_mautrix_telegram_bridge_encryption_allow }}"
+matrix_mautrix_telegram_bridge_encryption_key_sharing_allow: "{{ matrix_mautrix_telegram_bridge_encryption_allow }}"

@@ -93,6 +93,8 @@ When you're done with all the configuration you'd like to do, continue with [Ins
 
 ### Bridging other networks
 
+- [Setting up Mautrix Discord bridging](configuring-playbook-bridge-mautrix-discord.md) (optional)
+
 - [Setting up Mautrix Telegram bridging](configuring-playbook-bridge-mautrix-telegram.md) (optional)
 
 - [Setting up Mautrix Whatsapp bridging](configuring-playbook-bridge-mautrix-whatsapp.md) (optional)
@@ -140,6 +142,8 @@ When you're done with all the configuration you'd like to do, continue with [Ins
 - [Setting up Go Skype Bridge bridging](configuring-playbook-bridge-go-skype-bridge.md) (optional)
 
 - [Setting up Email2Matrix](configuring-playbook-email2matrix.md) (optional)
+
+- [Setting up Postmoogle email bridging](configuring-playbook-bot-postmoogle.md) (optional)
 
 - [Setting up Matrix SMS bridging](configuring-playbook-bridge-matrix-bridge-sms.md) (optional)
 

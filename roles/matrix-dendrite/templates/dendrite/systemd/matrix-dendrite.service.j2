@@ -41,18 +41,18 @@ ExecStart={{ matrix_host_command_docker }} run --rm --name matrix-dendrite \
 			{% for volume in matrix_dendrite_container_additional_volumes %}
 			-v {{ volume.src }}:{{ volume.dst }}:{{ volume.options }} \
 			{% endfor %}
-			{% for arg in matrix_dendrite_container_extra_arguments %}
+			{% for arg in matrix_dendrite_container_arguments %}
 			{{ arg }} \
 			{% endfor %}
 			{{ matrix_dendrite_docker_image }} \
 			-config /data/dendrite.yaml \
+			{{ matrix_dendrite_process_extra_arguments|join(' ') }} \
 			{% if matrix_dendrite_http_bind_address %}
 			-http-bind-address {{ matrix_dendrite_http_bind_address }}
 			{% endif %}
 			{% if matrix_dendrite_https_bind_address %}
 			-https-bind-address {{ matrix_dendrite_https_bind_address }}
 			{% endif %}
-			{{ matrix_dendrite_process_extra_arguments|join(' ') }}
 
 ExecStop=-{{ matrix_host_command_sh }} -c '{{ matrix_host_command_docker }} kill matrix-dendrite 2>/dev/null || true'
 ExecStop=-{{ matrix_host_command_sh }} -c '{{ matrix_host_command_docker }} rm matrix-dendrite 2>/dev/null || true'

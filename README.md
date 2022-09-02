@@ -19,6 +19,8 @@ Using this playbook, you can get the following services configured on your serve
 
 - (optional, default) a [Synapse](https://github.com/matrix-org/synapse) homeserver - storing your data and managing your presence in the [Matrix](http://matrix.org/) network
 
+- (optional) a [Conduit](https://conduit.rs) homeserver - storing your data and managing your presence in the [Matrix](http://matrix.org/) network. Conduit is a lightweight open-source server implementation of the Matrix Specification with a focus on easy setup and low system requirements
+
 - (optional) a [Dendrite](https://github.com/matrix-org/dendrite) homeserver - storing your data and managing your presence in the [Matrix](http://matrix.org/) network. Dendrite is a second-generation Matrix homeserver written in Go, an alternative to Synapse.
 
 - (optional) [Amazon S3](https://aws.amazon.com/s3/) storage for Synapse's content repository (`media_store`) files using [Goofys](https://github.com/kahing/goofys)
@@ -47,6 +49,8 @@ Using this playbook, you can get the following services configured on your serve
 
 - (optional, advanced) the [Matrix Corporal](https://github.com/devture/matrix-corporal) reconciliator and gateway for a managed Matrix server
 
+- (optional) the [mautrix-discord](https://github.com/mautrix/discord) bridge for bridging your Matrix server to [Discord](https://discord.com/) - see [docs/configuring-playbook-bridge-mautrix-discord.md](docs/configuring-playbook-bridge-mautrix-discord.md) for setup documentation
+
 - (optional) the [mautrix-telegram](https://github.com/mautrix/telegram) bridge for bridging your Matrix server to [Telegram](https://telegram.org/)
 
 - (optional) the [mautrix-whatsapp](https://github.com/mautrix/whatsapp) bridge for bridging your Matrix server to [WhatsApp](https://www.whatsapp.com/)
@@ -63,7 +67,7 @@ Using this playbook, you can get the following services configured on your serve
 
 - (optional) the [mautrix-signal](https://github.com/mautrix/signal) bridge for bridging your Matrix server to [Signal](https://www.signal.org/)
 
-- (optional) the [beeper-linkedin](https://gitlab.com/beeper/linkedin) bridge for bridging your Matrix server to [LinkedIn](https://www.linkedin.com/)
+- (optional) the [beeper-linkedin](https://github.com/beeper/linkedin) bridge for bridging your Matrix server to [LinkedIn](https://www.linkedin.com/)
 
 - (optional) the [matrix-appservice-irc](https://github.com/matrix-org/matrix-appservice-irc) bridge for bridging your Matrix server to [IRC](https://wikipedia.org/wiki/Internet_Relay_Chat)
 
@@ -108,6 +112,8 @@ Using this playbook, you can get the following services configured on your serve
 - (optional) [maubot](https://github.com/maubot/maubot) a plugin-based Matrix bot system - see [docs/configuring-playbook-bot-maubot.md](docs/configuring-playbook-bot-maubot.md) for setup documentation
 
 - (optional) [honoroit](https://gitlab.com/etke.cc/honoroit) helpdesk bot - see [docs/configuring-playbook-bot-honoroit.md](docs/configuring-playbook-bot-honoroit.md) for setup documentation
+
+- (optional) [Postmoogle](https://gitlab.com/etke.cc/postmoogle) email to matrix bot - see [docs/configuring-playbook-bot-postmoogle.md](docs/configuring-playbook-bot-postmoogle.md) for setup documentation
 
 - (optional) [Go-NEB](https://github.com/matrix-org/go-neb) multi functional bot written in Go - see [docs/configuring-playbook-bot-go-neb.md](docs/configuring-playbook-bot-go-neb.md) for setup documentation
 

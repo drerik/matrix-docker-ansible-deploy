@@ -1,5 +1,7 @@
 # Setting up Email2Matrix (optional)
 
+**Note**: email bridging can also happen via the [Postmoogle](configuring-playbook-bot-postmoogle.md) bot supported by the playbook.
+
 The playbook can install and configure [email2matrix](https://github.com/devture/email2matrix) for you.
 
 See the project's [documentation](https://github.com/devture/email2matrix/blob/master/docs/README.md) to learn what it does and why it might be useful to you.
@@ -34,18 +36,7 @@ You'll need the room id when doing [Configuration](#configuration) below.
 
 ### Obtaining an access token for the sender user
 
-In order for the sender user created above to be able to send messages to the room, we'll need to obtain an access token for it.
-
-To do this, you can execute a command like this:
-
-```
-curl \
---data '{"identifier": {"type": "m.id.user", "user": "email2matrix" }, "password": "MATRIX_PASSWORD_FOR_THE_USER", "type": "m.login.password", "device_id": "Email2Matrix", "initial_device_display_name": "Email2Matrix"}' \
-https://matrix.DOMAIN/_matrix/client/r0/login
-```
-
-Take note of the `access_token` value. You'll need the access token when doing [Configuration](#configuration) below.
-
+In order for the sender user created above to be able to send messages to the room, we'll need to obtain an access token for it. Refer to the documentation on [how to obtain an access token](obtaining-access-tokens.md).
 
 ## Configuration
 

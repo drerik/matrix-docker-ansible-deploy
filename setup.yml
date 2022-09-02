@@ -28,6 +28,7 @@
     - matrix-bridge-mautrix-signal
     - matrix-bridge-mautrix-telegram
     - matrix-bridge-mautrix-whatsapp
+    - matrix-bridge-mautrix-discord
     - matrix-bridge-mx-puppet-discord
     - matrix-bridge-mx-puppet-groupme
     - matrix-bridge-mx-puppet-steam
@@ -42,10 +43,12 @@
     - matrix-bot-maubot
     - matrix-bot-buscarron
     - matrix-bot-honoroit
+    - matrix-bot-postmoogle
     - matrix-bot-go-neb
     - matrix-bot-mjolnir
     - matrix-synapse
     - matrix-dendrite
+    - matrix-conduit
     - matrix-synapse-admin
     - matrix-prometheus-node-exporter
     - matrix-prometheus-postgres-exporter
