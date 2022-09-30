@@ -8,7 +8,7 @@ matrix_mautrix_whatsapp_container_image_self_build: false
 matrix_mautrix_whatsapp_container_image_self_build_repo: "https://mau.dev/mautrix/whatsapp.git"
 matrix_mautrix_whatsapp_container_image_self_build_branch: "{{ 'master' if matrix_mautrix_whatsapp_version == 'latest' else matrix_mautrix_whatsapp_version }}"
 
-matrix_mautrix_whatsapp_version: v0.6.1
+matrix_mautrix_whatsapp_version: v0.7.0
 # See: https://mau.dev/mautrix/whatsapp/container_registry
 matrix_mautrix_whatsapp_docker_image: "{{ matrix_mautrix_whatsapp_docker_image_name_prefix }}mautrix/whatsapp:{{ matrix_mautrix_whatsapp_version }}"
 matrix_mautrix_whatsapp_docker_image_name_prefix: "{{ 'localhost/' if matrix_mautrix_whatsapp_container_image_self_build else 'dock.mau.dev/' }}"
@@ -85,10 +85,6 @@ matrix_mautrix_whatsapp_appservice_database_uri: "{{
 matrix_mautrix_whatsapp_login_shared_secret: ''
 matrix_mautrix_whatsapp_bridge_login_shared_secret_map:
   "{{ {matrix_mautrix_whatsapp_homeserver_domain: matrix_mautrix_whatsapp_login_shared_secret} if matrix_mautrix_whatsapp_login_shared_secret else {} }}"
-
-# Servers to always allow double puppeting from
-matrix_mautrix_whatsapp_bridge_double_puppet_server_map:
-  "{{ matrix_mautrix_whatsapp_homeserver_domain :  matrix_mautrix_whatsapp_homeserver_address }}"
 
 # Enable End-to-bridge encryption
 matrix_mautrix_whatsapp_bridge_encryption_allow: false
